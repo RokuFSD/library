@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <!-- ============= CSS ================= -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <p class="bg-text">No books added</p>
+    <header class="header container">
+      <h1>Library</h1>
+      <button id="btn-add" class="btn-add">Add Book</button>
+    </header>
+    <div class="formAdd formAdd-hide" id="formAdd">
+      <form action="" class="form">
+	<h2 class="form__title">Add Book</h2>
+	<label for="name">Name:</label>
+	<input type="text" name="name" id="name" class="form__input" required>
+	<label for="author">Author:</label>
+	<input type="text" name="author" id="author" class="form__input">
+	<label for="pages">Pages:
+	</label>
+	<input type="number" name="pages" id="pages" min="0" class="form__input">
+	<label for="readed">Readed?:
+	  <input type="checkbox" name="readed" value="true" class="form__check">
+	</label>
+	<button type="submit" class="btn-sub">DONE</button>
+      </form>
+    </div>
+    <main class="main container">
+      <article class="card">
+      </article>
+    </main>
+    <footer class="footer container">
+      <p>Copyright © 2021 RokuFSD</p>
+    </footer>
+    <script src="assets/js/main.js" type="text/javascript"></script>
+  </body>
+</html>

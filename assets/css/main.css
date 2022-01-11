@@ -1,0 +1,226 @@
+/*======================= GOOGLE FONTS ==============================*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/*======================= VARIABLES ==============================*/
+
+:root {
+  /*======= Colors ======*/
+  --bg-color: #22223b;
+  --primary-color: #f2e9e4;
+  --secondary-color: #c9ada7;
+  --alt-color: #9a8c98;
+
+  /*======= Font & Typography ========*/
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.75rem;
+
+  --font-bold: 700;
+  --font-normal: 400;
+
+  --body-font: "Roboto", sans-serif;
+}
+
+/*======= Responsive Typo ========*/
+@media screen and (min-width: 768px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --h1-font-size: 2.75rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.938rem;
+    --smaller-font-size: 0.875rem;
+  }
+}
+
+/*========================== BASE ============================*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background: var(--bg-color);
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+/*========================= LAYOUT ============================*/
+
+.container {
+  width: 100%;
+  padding-inline: 2rem;
+}
+
+/*========================= HEADER ===========================*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  margin: 0 0 6rem 0;
+  padding: 2rem 2rem 0;
+}
+
+.btn-add{
+  width: 5rem;
+  height: 3rem;
+  font-family:inherit;
+  font-size: var(--smaller-font-size);
+  cursor: pointer;
+  background: var(--alt-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--primary-color);
+  transition: background .2s ease-out;
+}
+
+.btn-add:focus,
+.btn-add:hover{
+  outline: none;
+  background: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.btn-add:active{
+  transform: scale(0.9);
+}
+
+/*========================= MAIN ============================*/
+
+.main {
+  position: relative;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1rem;
+}
+
+.bg-text {
+  position: absolute;
+  font-size: var(--biggest-font-size);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: -1000;
+  opacity: 0.1;
+}
+
+/*========================= Form ========================*/
+
+.formAdd {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  transition: top 0.4s ease-in;
+}
+
+.formAdd-show {
+  top: 0;
+}
+
+.formAdd-hide {
+  top: -100%;
+}
+
+.form {
+  z-index: 1000;
+  min-width: 20rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.form__title {
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+
+.form label {
+  font-weight: var(--font-bold);
+}
+
+.form__input {
+  margin: 0.5rem 0 1rem 0;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid var(--alt-color);
+  padding-inline: 0.5rem;
+  font-family: inherit;
+  font-size: var(--normal-font-size);
+  background: none;
+  color: inherit;
+  transition: outline 0.2s ease-in;
+}
+
+.form__input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.btn-sub {
+  width: 9rem;
+  height: 3rem;
+  margin: 3rem auto 0;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.73);
+}
+
+.btn-sub:hover,
+.btn-sub:focus {
+  background: var(--primary-color);
+}
+
+.btn-sub:focus {
+  outline: none;
+}
+
+.btn-sub:active {
+  background: var(--alt-color);
+}
+
+@media screen and (min-width: 45rem){
+  .form{
+    padding: 0;
+  }
+}
+
+/*========================= CARDS ========================*/
+.card {
+  display: flex;
+}
+
+/*========================= FOOTER ========================*/
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: var(--normal-font-size);
+  text-align: center;
+  padding-block: 2rem;
+}
