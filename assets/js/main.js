@@ -1,3 +1,5 @@
+/*================ Book Object =================*/
+
 let myBooks = [];
 
 class Book {
@@ -14,11 +16,14 @@ class Book {
   };
 }
 
+/*================ Variables ===================*/
+
 const cardsContainer = document.querySelector(".main");
 const addButton = document.querySelector("#btn-add");
 const book1 = new Book('jajas', 'kjrow', 230, true);
 const formContainer = document.querySelector(".formAdd");
 
+/*================= Events ================*/
 
 addButton.addEventListener("click", () => {
   formContainer.classList.add("formAdd-show");
@@ -32,3 +37,19 @@ formContainer.addEventListener("click", (e) => {
     e.target.classList.add("formAdd-hide");
   }
 })
+
+const addBookToLibrary = (book) =>{
+  myBooks.push(book);
+}
+
+const printBook = (book) => {
+  const card = document.createElement("ARTICLE");
+  card.classList.add("card");
+  cardsContainer.addChild(card);
+}
+
+const updateGrid = () => {
+  for(let book in myBooks){
+    printBook(book);
+  }
+}
