@@ -15,23 +15,32 @@
     </header>
     <div class="formAdd formAdd-hide" id="formAdd">
       <form action="" class="form">
-	<h2 class="form__title">Add Book</h2>
-	<label for="name">Name:</label>
-	<input type="text" name="name" id="name" class="form__input" required>
-	<label for="author">Author:</label>
-	<input type="text" name="author" id="author" class="form__input">
-	<label for="pages">Pages:
-	</label>
-	<input type="number" name="pages" id="pages" min="0" class="form__input">
-	<label for="readed">Readed?:
-	  <input type="checkbox" name="readed" value="true" class="form__check">
-	</label>
-	<button type="submit" class="btn-sub">DONE</button>
+        <h2 class="form__title">Add Book</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="title" class="form__input" required />
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" class="form__input" />
+        <label for="pages">Pages: </label>
+        <input
+          type="number"
+          name="pages"
+          id="pages"
+          min="0"
+          class="form__input"
+        />
+        <label for="readed"
+          >Readed?:
+          <input
+            type="checkbox"
+            name="readed"
+            class="form__check"
+	    id="readed"
+          />
+        </label>
+        <button type="button" class="btn-sub">DONE</button>
       </form>
     </div>
     <main class="main container">
-      <article class="card">
-      </article>
     </main>
     <footer class="footer container">
       <p>Copyright © 2021 RokuFSD</p>
