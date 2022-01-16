@@ -126,6 +126,27 @@ h1 {
   opacity: 0.1;
 }
 
+/* Responsive Medium*/
+
+@media screen and (min-width: 768px) {
+  .main{
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 3rem;
+  }
+}
+
+/* Responsive Large*/
+
+@media screen and (min-width: 1024px) {
+  .main{
+    max-width: 80rem;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 /*========================= Form ========================*/
 
 .formAdd {
@@ -165,7 +186,7 @@ h1 {
 }
 
 .form__input {
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 2rem 0;
   height: 2rem;
   border-radius: 5px;
   border: none;
@@ -180,6 +201,11 @@ h1 {
 
 .form__input:focus {
   outline: 2px solid var(--primary-color);
+}
+
+.form__check{
+  transform: scale(2);
+  margin-inline: 1rem;
 }
 
 .btn-sub {
@@ -236,14 +262,15 @@ h1 {
   color: #160f29;
 }
 
-.card h1{
+.card h2{
   position: absolute;
   top: 0;
   left: 0;
   text-transform: uppercase;
   background: var(--alt-color);
+  font-size: var(--normal-font);
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 0;
   text-align: center;
 }
 

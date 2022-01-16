@@ -3,7 +3,6 @@
 let myBooks = [];
 
 class Book {
-
   constructor(title, author, numPages, readed) {
     this.title = title;
     this.author = author;
@@ -13,14 +12,12 @@ class Book {
 
   setReaded = (readed) => {
     this.readed = readed;
-  }
+  };
 
   getTitle = () => {
     return this.title;
-  }
-
+  };
 }
-
 
 /*================ Variables ===================*/
 
@@ -32,17 +29,23 @@ const formContainer = document.querySelector(".formAdd");
 const bgText = document.querySelector(".bg-text");
 
 /*================= Functions ====================*/
+const saveUserData = () => {
+  let myArraySerialized = JSON.stringify(myBooks);
+  localStorage.setItem("myArray", myArraySerialized);
+};
+
 const loadUserData = () => {
   let currentBooks = localStorage.getItem("myArray");
-  if(currentBooks == null) return;
+  let storedBooks = [];
+  if (currentBooks == null) return;
   currentBooks = JSON.parse(currentBooks);
-  const storedBooks = currentBooks.map(book => {
-    new Book(book.title, book.author, book.numPages, book.readed);
+  storedBooks = currentBooks.map((book) => {
+    return new Book(book.title, book.author, book.numPages, book.readed);
   });
-  console.log(storedBooks);
 
+  myBooks = [...storedBooks];
   updateGrid();
-}
+};
 
 const addBookToLibrary = (book) => {
   myBooks.push(book);
@@ -50,7 +53,7 @@ const addBookToLibrary = (book) => {
 
 const printBook = (book) => {
   const card = document.createElement("ARTICLE");
-  const h1 = document.createElement("H1");
+  const h2 = document.createElement("H2");
   const h3 = document.createElement("H3");
   const p = document.createElement("P");
   const buttonRemove = `<button class="card__btn card__btn--remove">Remove</button>`;
@@ -62,10 +65,10 @@ const printBook = (book) => {
     doc = `<button class="card__btn card__btn--false" id="btn__readed">Readed <i class="material-icons">close</i></button>`;
   }
 
-  h1.innerText = book.title;
+  h2.innerText = book.title;
   h3.innerText = `Author: ${book.author}`;
   p.innerText = `Pages: ${book.numPages}`;
-  card.append(h1);
+  card.append(h2);
   card.append(h3);
   card.append(p);
   card.insertAdjacentHTML("beforeend", doc);
@@ -76,12 +79,14 @@ const printBook = (book) => {
 
 const updateGrid = () => {
   cardsContainer.innerHTML = "";
-  myBooks.length > 0 ? bgText.innerHTML = "" : bgText.innerHTML = "No books added";
+  myBooks.length > 0
+    ? (bgText.innerHTML = "")
+    : (bgText.innerHTML = "No books added");
+
   for (let book of myBooks) {
     printBook(book);
   }
-  let myArraySerialized = JSON.stringify(myBooks);
-  localStorage.setItem("myArray", myArraySerialized);
+  saveUserData();
 };
 
 const createBook = () => {
@@ -116,7 +121,7 @@ const checkButton = (button) => {
 
 const updateStatus = (button) => {
   myBooks.filter((book) => {
-    if (book.getTitle().toUpperCase() !== button.parentNode.firstChild.innerText) return;
+    if (book.getTitle().toUpperCase() !== button.parentNode.firstChild.innerText)return;
 
     if (checkButton(button) == "readed") {
       button.childNodes[1].innerHTML = "check";
@@ -126,14 +131,17 @@ const updateStatus = (button) => {
       book.setReaded(false);
     }
   });
+  saveUserData();
 };
 
 const removeBook = (card) => {
   card.remove();
-  let newBooks = myBooks.filter(book => book.getTitle() !== card.firstChild.innerHTML);
+  let newBooks = myBooks.filter(
+    (book) => book.getTitle() !== card.firstChild.innerHTML
+  );
   myBooks = [...newBooks];
   updateGrid();
-}
+};
 
 /*================= Events ================*/
 
@@ -163,7 +171,12 @@ cardsContainer.addEventListener("click", (e) => {
     updateStatus(e.target);
   }
 
-  if(e.target.tagName === "BUTTON" && e.target.classList.contains("card__btn--remove")) removeBook(e.target.parentNode);
+  if (
+    e.target.tagName === "BUTTON" &&
+    e.target.classList.contains("card__btn--remove")
+  )
+    removeBook(e.target.parentNode);
 });
 
+//check saved books
 loadUserData();
