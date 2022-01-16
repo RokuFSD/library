@@ -9,6 +9,9 @@
   --primary-color: #f2e9e4;
   --secondary-color: #c9ada7;
   --alt-color: #9a8c98;
+  --hue: 140;
+  --saturation: 30%;
+  --lightness: 50%;
 
   /*======= Font & Typography ========*/
   --biggest-font-size: 2rem;
@@ -283,12 +286,13 @@ h1 {
   position: relative;
   min-width: 8rem;
   height: 3rem;
-  background: #1b998b;
+  background: hsl(var(--hue), var(--saturation), var(--lightness));
   border: none;
   border-radius: 5px;
   text-transform: uppercase;
   cursor: pointer;
   align-self: center;
+  transition: background .2s ease-in;
 }
 
 .card__btn i{
@@ -300,12 +304,13 @@ h1 {
 }
 
 .card__btn--remove{
-  background: var(--bg-color);
+  --lightness: 20%;
+  background: hsl(240, 20%, var(--lightness));
   color: var(--primary-color);
 }
 
 .card__btn--false{
-  background: #e76f51;
+  background: hsl(0, var(--saturation), var(--lightness));
 }
 
 .card__btn p::after{
@@ -313,6 +318,16 @@ h1 {
   width:2rem;
   aspect-ratio: 1;
   background: black;
+}
+
+.card__btn:hover,
+.card__btn:focus{
+  --lightness: 45%;
+  outline: none;
+}
+
+.card__btn:active{
+  transform: scale(.95);
 }
 
 /*========================= FOOTER ========================*/
