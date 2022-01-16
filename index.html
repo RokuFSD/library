@@ -6,6 +6,8 @@
     <title>Library</title>
     <!-- ============= CSS ================= -->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- =========== Materialize Icons ================== -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <p class="bg-text">No books added</p>
@@ -17,7 +19,13 @@
       <form action="" class="form">
         <h2 class="form__title">Add Book</h2>
         <label for="name">Name:</label>
-        <input type="text" name="name" id="title" class="form__input" required />
+        <input
+          type="text"
+          name="name"
+          id="title"
+          class="form__input"
+          required
+        />
         <label for="author">Author:</label>
         <input type="text" name="author" id="author" class="form__input" />
         <label for="pages">Pages: </label>
@@ -34,7 +42,7 @@
             type="checkbox"
             name="readed"
             class="form__check"
-	    id="readed"
+            id="readed"
           />
         </label>
         <button type="button" class="btn-sub">DONE</button>

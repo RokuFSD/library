@@ -1,5 +1,5 @@
 /*======================= GOOGLE FONTS ==============================*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 /*======================= VARIABLES ==============================*/
 
@@ -18,6 +18,7 @@
   --smaller-font-size: 0.75rem;
 
   --font-bold: 700;
+  --font-semibold: 500;
   --font-normal: 400;
 
   --body-font: "Roboto", sans-serif;
@@ -27,7 +28,7 @@
 @media screen and (min-width: 768px) {
   :root {
     --biggest-font-size: 3rem;
-    --h1-font-size: 2.75rem;
+    --h1-font-size: 2rem;
     --normal-font-size: 1rem;
     --small-font-size: 0.938rem;
     --smaller-font-size: 0.875rem;
@@ -70,9 +71,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
-  margin: 0 0 6rem 0;
+  height: 6rem;
+  margin: 0 0 3rem 0;
   padding: 2rem 2rem 0;
+}
+
+.header h1{
+  font-size: var(--biggest-font-size);
 }
 
 .btn-add {
@@ -102,10 +107,11 @@ h1 {
 /*========================= MAIN ============================*/
 
 .main {
-  position: relative;
   display: grid;
+  position: relative;
   grid-gap: 2rem;
-  grid-template-columns: 1rem;
+  grid-template-columns: auto;
+  padding-bottom: 6rem;
 }
 
 .bg-text {
@@ -123,9 +129,9 @@ h1 {
 /*========================= Form ========================*/
 
 .formAdd {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 100;
   position: absolute;
   display: flex;
@@ -212,11 +218,78 @@ h1 {
 }
 
 /*========================= CARDS ========================*/
+
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5rem;
+  gap: 2rem;
+  background: var(--secondary-color);
+  border-radius: 10px;
+  height: 25rem;
+  width: min(100%, 20rem);
+  margin: 0 auto;
+  color: #160f29;
+}
+
+.card h1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  background: var(--alt-color);
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card h3,
+.card p {
+  padding-left: 2rem;
+}
+
+.card__btn{
+  position: relative;
+  min-width: 8rem;
+  height: 3rem;
+  background: #1b998b;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: center;
+}
+
+.card__btn i{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-inline: .5rem;
+}
+
+.card__btn--remove{
+  background: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.card__btn--false{
+  background: #e76f51;
+}
+
+.card__btn p::after{
+  content: "";
+  width:2rem;
+  aspect-ratio: 1;
+  background: black;
 }
 
 /*========================= FOOTER ========================*/
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -224,3 +297,5 @@ h1 {
   text-align: center;
   padding-block: 2rem;
 }
+
+
